@@ -5,5 +5,8 @@
   "description": "URLの文字列を部分的に変換する",
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "permissions": [
+    "storage"
+  ]
 }

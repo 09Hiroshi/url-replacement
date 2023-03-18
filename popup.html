@@ -7,17 +7,17 @@
   <body>
     <div class="container">
       <form>
-        <label for="target-string">変換したい文字列:</label>
-        <input type="text" id="target-string" name="target-string"><br><br>
+        <label for="before">変換したい文字列:</label>
+        <input type="text" id="before" name="before"><br><br>
       </form>
       <form>
-        <label for="replace-string">変換後の文字列:</label>
-        <input type="text" id="replace-string" name="replace-string"><br><br>
+        <label for="after">変換後の文字列:</label>
+        <input type="text" id="after" name="after"><br><br>
       </form>
       <button id="ok-button">OK</button>
       <div id="fixed">
-        <p>変換したい文字列: <span id="fixed-target-string"></span></p>
-        <p>変換後の文字列: <span id="fixed-replace-string"></span></p>
+        <p>変換したい文字列: <span id="fixed-before"></span></p>
+        <p>変換後の文字列: <span id="fixed-after"></span></p>
       </div>
     </div>
     <script src="popup.js"></script>

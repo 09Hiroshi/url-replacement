@@ -1,17 +1,27 @@
-const targetString = document.getElementById('target-string');
-const replaceString = document.getElementById('replace-string');
-const fixedTargetString = document.getElementById('fixed-target-string');
-const fixedReplaceString = document.getElementById('fixed-replace-string');
+const beforeInput = document.getElementById('before');
+const afterInput = document.getElementById('after');
+const fixedBefore = document.getElementById('fixed-before');
+const fixedAfter = document.getElementById('fixed-after');
 const okButton = document.getElementById('ok-button');
 
 okButton.addEventListener('click', () => {
 
-  const target = targetString.value;
-  const replace = replaceString.value;
+  const before = beforeInput.value
+  const after = afterInput.value
   
-  fixedTargetString.innerText = target;
-  fixedReplaceString.innerText = replace;
+  fixedBefore.innerText = before
+  fixedAfter.innerText = after
   
-  targetString.value = '';
-  replaceString.value = '';
+  save(before, after)
+
+  before.value = ''
+  after.value = ''
 });
+
+// 設定を保存する
+const save = (before, after) => {
+  chrome.storage.local.set({ 
+    before: before,
+    after: after
+  })
+}
