@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "url replacement",
   "version": "1.0.0",
   "description": "URLの文字列を部分的に変換する"
