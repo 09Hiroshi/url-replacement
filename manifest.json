@@ -1,0 +1,7 @@
+{
+  "manifest_version": 2,
+  "name": "url replacement",
+  "version": "1.0.0",
+  "description": "URLの文字列を部分的に変換する",
+  "default_locale": "ja_JP"
+}
