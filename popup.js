@@ -6,8 +6,6 @@ const okButton = document.getElementById('ok-button');
 
 okButton.addEventListener('click', () => {
 
-  console.log("aaaaa")
-
   const target = targetString.value;
   const replace = replaceString.value;
   
