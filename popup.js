@@ -18,7 +18,7 @@ registerButton.addEventListener('click', () => {
   const before = beforeInput.value
   const after = afterInput.value
 
-  validation(before)
+  validationRegister(before)
 
   fixedBefore.innerText = before
   fixedAfter.innerText = after
@@ -41,9 +41,16 @@ replaceButton.addEventListener('click', () => {
     'lastFocusedWindow': true
   }, (tabs) => {
 
-    // URLを変換する
+    before = fixedBefore.textContent
+    after = fixedAfter.textContent
+
+    // URLを取得する
     const url = tabs[0].url
-    const newUrl = url.replace(fixedBefore.textContent, fixedAfter.textContent)
+
+    validationReplace(url, before)
+
+    // URLを変換する
+    const newUrl = url.replace(before, after)
 
     // 変換後のURLを指定する
     chrome.tabs.update({
@@ -52,8 +59,14 @@ replaceButton.addEventListener('click', () => {
   })
 })
 
-const validation = (before) => {
+const validationRegister = (before) => {
   if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
+  }
+}
+
+const validationReplace = (url, before) => {
+  if (!url.includes(before)) {
+    errorMessage.innerText = `「${before}」が含まれないURLです`
   }
 }
