@@ -14,6 +14,7 @@ chrome.storage.local.get(['before', 'after'], (result) => {
 })
 
 registerButton.addEventListener('click', () => {
+  errorMessage.innerText = ''
 
   const before = beforeInput.value
   const after = afterInput.value
@@ -34,6 +35,7 @@ registerButton.addEventListener('click', () => {
 })
 
 replaceButton.addEventListener('click', () => {
+  errorMessage.innerText = ''
 
   // 現在のタブに対してのアクション
   chrome.tabs.query({
