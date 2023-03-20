@@ -27,6 +27,7 @@ chrome.storage.local.get(['before', 'after'], (result) => {
  * 「登録する」ボタン押下時の挙動
  */
 registerButton.addEventListener('click', () => {
+
   errorMessage.innerText = ''
 
   // 入力された文字列を取得
@@ -56,6 +57,7 @@ registerButton.addEventListener('click', () => {
  * 「URLを変換する」ボタン押下時の挙動
  */
 replaceButton.addEventListener('click', () => {
+
   errorMessage.innerText = ''
 
   // 現在のタブに対してのアクション
@@ -90,6 +92,7 @@ replaceButton.addEventListener('click', () => {
  * @returns 
  */
 const validationRegister = (before) => {
+
   if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
     return false
@@ -104,6 +107,7 @@ const validationRegister = (before) => {
  * @param {*} before 
  */
 const validationReplace = (url, before) => {
+
   if (!url.includes(before)) {
     errorMessage.innerText = `「${before}」が含まれないURLです`
   }
@@ -111,16 +115,15 @@ const validationReplace = (url, before) => {
 
 /**
  * 以下の項目の表示/非表示を指定する
- * ・矢印(→)
  * ・「URLを変換する」ボタン
+ * ・文字列の変換内容
  * 
  * @param {*} visibility 表示/非表示
  */
 const toggleVisibility = (visibility) => {
-  // 矢印
-  document.getElementById("arrow").style.visibility = visibility;
+
   // 「URLを変換する」ボタン
   document.getElementById("replace-button").style.visibility = visibility;
-  // クォーテーション
-  document.getElementById("quotation").style.visibility = visibility;
+  // 文字列の変換内容
+  document.getElementById("content-to-replace").style.visibility = visibility;
 }
