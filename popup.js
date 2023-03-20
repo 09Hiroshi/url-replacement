@@ -16,14 +16,17 @@ chrome.storage.local.get(['before', 'after'], (result) => {
 registerButton.addEventListener('click', () => {
   errorMessage.innerText = ''
 
+  // 入力された文字列を取得
   const before = beforeInput.value
   const after = afterInput.value
 
   if (!validationRegister(before)) return
 
+  // 入力された文字列を「変換したい文字列」と「変換後の文字列」の欄に反映する
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
+  // テキストボックスを空にする
   before.value = ''
   after.value = ''
 
@@ -43,10 +46,11 @@ replaceButton.addEventListener('click', () => {
     'lastFocusedWindow': true
   }, (tabs) => {
 
+    // 「変換したい文字列」と「変換後の文字列」を取得
     before = fixedBefore.textContent
     after = fixedAfter.textContent
 
-    // URLを取得する
+    // 現在のURLを取得する
     const url = tabs[0].url
 
     validationReplace(url, before)
