@@ -12,11 +12,11 @@ chrome.storage.local.get(['before', 'after'], (result) => {
   document.getElementById('fixed-before').textContent = result.before
   document.getElementById('fixed-after').textContent = result.after
 
-  // 登録された設定がない場合、矢印を出さない
+  // 一部、登録された設定の有無で表示/非表示を選択する
   if (result.before == null) {
-    document.getElementById("arrow").style.visibility ="hidden";
+    hidden()
   } else {
-    document.getElementById("arrow").style.visibility ="visible";
+    visible()
   }
 })
 
@@ -33,8 +33,7 @@ registerButton.addEventListener('click', () => {
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
-  // 矢印を出す
-  document.getElementById("arrow").style.visibility ="visible";
+  visible()
 
   // テキストボックスを空にする
   before.value = ''
@@ -89,4 +88,18 @@ const validationReplace = (url, before) => {
   if (!url.includes(before)) {
     errorMessage.innerText = `「${before}」が含まれないURLです`
   }
+}
+
+const hidden = () => {
+  // 矢印
+  document.getElementById("arrow").style.visibility ="hidden";
+  // 「URLを変換する」ボタン
+  document.getElementById("replace-button").style.visibility ="hidden";
+}
+
+const visible = () => {
+  // 矢印
+  document.getElementById("arrow").style.visibility ="visible";
+  // 「URLを変換する」ボタン
+  document.getElementById("replace-button").style.visibility ="visible";
 }
