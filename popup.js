@@ -6,6 +6,9 @@ const registerButton = document.getElementById('register-button')
 const replaceButton = document.getElementById('replace-button')
 const errorMessage = document.getElementById('error-message')
 
+/**
+ * ポップアップ表示時の挙動
+ */
 // 設定を読み込む
 chrome.storage.local.get(['before', 'after'], (result) => {
 
@@ -20,6 +23,9 @@ chrome.storage.local.get(['before', 'after'], (result) => {
   }
 })
 
+/**
+ * 「登録する」ボタン押下時の挙動
+ */
 registerButton.addEventListener('click', () => {
   errorMessage.innerText = ''
 
@@ -46,6 +52,9 @@ registerButton.addEventListener('click', () => {
   })
 })
 
+/**
+ * 「URLを変換する」ボタン押下時の挙動
+ */
 replaceButton.addEventListener('click', () => {
   errorMessage.innerText = ''
 
@@ -74,7 +83,9 @@ replaceButton.addEventListener('click', () => {
   })
 })
 
-// 「登録する」ボタン押下時のバリデーション
+/**
+ * 「登録する」ボタン押下時のバリデーション
+ */
 const validationRegister = (before) => {
   if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
@@ -83,13 +94,20 @@ const validationRegister = (before) => {
   return true
 }
 
-// 「URLを変換する」ボタン押下時のバリデーション
+/**
+ * 「URLを変換する」ボタン押下時のバリデーション
+ */
 const validationReplace = (url, before) => {
   if (!url.includes(before)) {
     errorMessage.innerText = `「${before}」が含まれないURLです`
   }
 }
 
+/**
+ * 以下の項目を非表示にする
+ * ・矢印(→)
+ * ・「登録する」ボタン
+ */
 const hidden = () => {
   // 矢印
   document.getElementById("arrow").style.visibility ="hidden";
@@ -97,6 +115,11 @@ const hidden = () => {
   document.getElementById("replace-button").style.visibility ="hidden";
 }
 
+/**
+ * 以下の項目を表示する
+ * ・矢印(→)
+ * ・「URLを変換する」ボタン
+ */
 const visible = () => {
   // 矢印
   document.getElementById("arrow").style.visibility ="visible";
