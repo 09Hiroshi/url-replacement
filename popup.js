@@ -11,6 +11,13 @@ chrome.storage.local.get(['before', 'after'], (result) => {
 
   document.getElementById('fixed-before').textContent = result.before
   document.getElementById('fixed-after').textContent = result.after
+
+  // 登録された設定がない場合、矢印を出さない
+  if (result.before == null) {
+    document.getElementById("arrow").style.visibility ="hidden";
+  } else {
+    document.getElementById("arrow").style.visibility ="visible";
+  }
 })
 
 registerButton.addEventListener('click', () => {
@@ -25,6 +32,9 @@ registerButton.addEventListener('click', () => {
   // 入力された文字列を「変換したい文字列」と「変換後の文字列」の欄に反映する
   fixedBefore.innerText = before
   fixedAfter.innerText = after
+
+  // 矢印を出す
+  document.getElementById("arrow").style.visibility ="visible";
 
   // テキストボックスを空にする
   before.value = ''
