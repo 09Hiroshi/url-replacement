@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>url replacement</title>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <label for="before">変換したい文字列:</label>
+        <input type="text" id="before" name="before"><br><br>
+      </form>
+      <form>
+        <label for="after">変換後の文字列:</label>
+        <input type="text" id="after" name="after"><br><br>
+      </form>
+      <button id="register-button">登録する</button>
+      <div id="fixed">
+        <p>変換したい文字列: <span id="fixed-before"></span></p>
+        <p>変換後の文字列: <span id="fixed-after"></span></p>
+      </div>
+      <button id="replace-button">URLを変換する</button>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
