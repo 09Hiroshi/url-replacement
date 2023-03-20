@@ -53,7 +53,7 @@ replaceButton.addEventListener('click', () => {
 })
 
 const validation = (before) => {
-  if (!before.match(/\S/g)) {
+  if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
   }
 }
