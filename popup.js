@@ -17,9 +17,9 @@ chrome.storage.local.get(['before', 'after'], (result) => {
 
   // 一部、登録された設定の有無で表示/非表示を選択する
   if (result.before == null) {
-    hidden()
+    toggleVisibility('hidden')
   } else {
-    visible()
+    toggleVisibility('visible')
   }
 })
 
@@ -39,7 +39,7 @@ registerButton.addEventListener('click', () => {
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
-  visible()
+  toggleVisibility('visible')
 
   // テキストボックスを空にする
   before.value = ''
@@ -85,6 +85,9 @@ replaceButton.addEventListener('click', () => {
 
 /**
  * 「登録する」ボタン押下時のバリデーション
+ * 
+ * @param {*} before 
+ * @returns 
  */
 const validationRegister = (before) => {
   if (before == '' || !before.match(/\S/g)) {
@@ -96,6 +99,9 @@ const validationRegister = (before) => {
 
 /**
  * 「URLを変換する」ボタン押下時のバリデーション
+ * 
+ * @param {*} url 
+ * @param {*} before 
  */
 const validationReplace = (url, before) => {
   if (!url.includes(before)) {
@@ -104,25 +110,15 @@ const validationReplace = (url, before) => {
 }
 
 /**
- * 以下の項目を非表示にする
- * ・矢印(→)
- * ・「登録する」ボタン
- */
-const hidden = () => {
-  // 矢印
-  document.getElementById("arrow").style.visibility ="hidden";
-  // 「URLを変換する」ボタン
-  document.getElementById("replace-button").style.visibility ="hidden";
-}
-
-/**
- * 以下の項目を表示する
+ * 以下の項目の表示/非表示を指定する
  * ・矢印(→)
  * ・「URLを変換する」ボタン
+ * 
+ * @param {*} visibility 表示/非表示
  */
-const visible = () => {
+const toggleVisibility = (visibility) => {
   // 矢印
-  document.getElementById("arrow").style.visibility ="visible";
+  document.getElementById("arrow").style.visibility = visibility;
   // 「URLを変換する」ボタン
-  document.getElementById("replace-button").style.visibility ="visible";
+  document.getElementById("replace-button").style.visibility = visibility;
 }
