@@ -65,13 +65,16 @@ replaceButton.addEventListener('click', () => {
   })
 })
 
+// 「登録する」ボタン押下時のバリデーション
 const validationRegister = (before) => {
   if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
     return false
   }
+  return true
 }
 
+// 「URLを変換する」ボタン押下時のバリデーション
 const validationReplace = (url, before) => {
   if (!url.includes(before)) {
     errorMessage.innerText = `「${before}」が含まれないURLです`
