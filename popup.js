@@ -18,7 +18,7 @@ registerButton.addEventListener('click', () => {
   const before = beforeInput.value
   const after = afterInput.value
 
-  validationRegister(before)
+  if (!validationRegister(before)) return
 
   fixedBefore.innerText = before
   fixedAfter.innerText = after
@@ -62,6 +62,7 @@ replaceButton.addEventListener('click', () => {
 const validationRegister = (before) => {
   if (before == '' || !before.match(/\S/g)) {
     errorMessage.innerText = '⚠️変換したい文字列を入力してください'
+    return false
   }
 }
 
