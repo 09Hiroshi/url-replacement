@@ -121,4 +121,6 @@ const toggleVisibility = (visibility) => {
   document.getElementById("arrow").style.visibility = visibility;
   // 「URLを変換する」ボタン
   document.getElementById("replace-button").style.visibility = visibility;
+  // クォーテーション
+  document.getElementById("quotation").style.visibility = visibility;
 }
