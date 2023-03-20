@@ -88,8 +88,8 @@ replaceButton.addEventListener('click', () => {
 /**
  * 「登録する」ボタン押下時のバリデーション
  * 
- * @param {*} before 
- * @returns 
+ * @param {*} before 変換したい文字列
+ * @returns バリデーションエラー後の処理を実行しないため、無理矢理returnする
  */
 const validationRegister = (before) => {
 
@@ -103,8 +103,8 @@ const validationRegister = (before) => {
 /**
  * 「URLを変換する」ボタン押下時のバリデーション
  * 
- * @param {*} url 
- * @param {*} before 
+ * @param {*} url 現在のURL
+ * @param {*} before 変換したい文字列
  */
 const validationReplace = (url, before) => {
 
