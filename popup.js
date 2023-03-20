@@ -17,6 +17,10 @@ registerButton.addEventListener('click', () => {
   const before = beforeInput.value
   const after = afterInput.value
 
+  if (before === '') {
+    alert('変換したい文字列を入力してください')
+  }
+
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
