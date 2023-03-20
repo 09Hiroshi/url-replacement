@@ -16,7 +16,7 @@ registerButton.addEventListener('click', () => {
 
   const before = beforeInput.value
   const after = afterInput.value
-  
+
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
