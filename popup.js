@@ -4,6 +4,7 @@ const fixedBefore = document.getElementById('fixed-before')
 const fixedAfter = document.getElementById('fixed-after')
 const registerButton = document.getElementById('register-button')
 const replaceButton = document.getElementById('replace-button')
+const errorMessage = document.getElementById('error-message')
 
 // 設定を読み込む
 chrome.storage.local.get(['before', 'after'], (result) => {
@@ -53,6 +54,6 @@ replaceButton.addEventListener('click', () => {
 
 const validation = (before) => {
   if (before === '') {
-    alert('変換したい文字列を入力してください')
+    errorMessage.innerText = '⚠️変換したい文字列を入力してください'
   }
 }
