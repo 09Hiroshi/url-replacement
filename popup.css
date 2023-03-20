@@ -1,13 +1,11 @@
+/* ポップアップ本体 */
 body {
   width: 300px;
 }
 
+/* テキストボックス */
 #before, #after {
   width: 95%;
-}
-
-#error-message {
-  color: red;
 }
 
 /* ボタン */
@@ -24,5 +22,6 @@ body {
 
 /* エラーメッセージ */
 #error-message {
+  color: red;
   margin-bottom: 20px;
 }
