@@ -94,7 +94,7 @@ replaceButton.addEventListener('click', () => {
 const validationRegister = (before) => {
 
   if (before == '' || !before.match(/\S/g)) {
-    errorMessage.innerText = '⚠️変換したい文字列を入力してください'
+    errorMessage.innerText = '変換したい文字列を入力してください'
     return false
   }
   return true
@@ -109,7 +109,7 @@ const validationRegister = (before) => {
 const validationReplace = (url, before) => {
 
   if (!url.includes(before)) {
-    errorMessage.innerText = `「${before}」が含まれないURLです`
+    errorMessage.innerText = `現在のURLに'${before}'は含まれません`
   }
 }
 
