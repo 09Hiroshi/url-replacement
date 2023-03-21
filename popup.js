@@ -33,7 +33,7 @@ registerButton.addEventListener('click', () => {
 
   if (!validationRegister(before)) return
 
-  // 入力された文字列を「変換したい文字列」と「変換後の文字列」の欄に反映する
+  // 入力された文字列を変換内容の欄に反映する
   fixedBefore.innerText = before
   fixedAfter.innerText = after
 
@@ -127,7 +127,11 @@ const toggleVisibility = (visibility) => {
 }
 
 /**
- * 正規表現で必要な文字をエスケープする
+ * 渡された文字列の中から以下の文字をエスケープする
+ * 対象文字: \/*+.?^&-{}[]()|
+ * 
+ * @param {*} str 文字列
+ * @returns 
  */
 const escapeRegExp = (str) => {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
