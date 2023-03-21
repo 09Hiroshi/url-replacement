@@ -40,8 +40,8 @@ registerButton.addEventListener('click', () => {
   toggleVisibility('visible')
 
   // テキストボックスを空にする
-  before.value = ''
-  after.value = ''
+  beforeInput.value = ''
+  afterInput.value = ''
 
   // 設定を保存する
   chrome.storage.local.set({ 
