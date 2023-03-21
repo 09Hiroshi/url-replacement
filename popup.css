@@ -1,0 +1,27 @@
+/* ポップアップ本体 */
+body {
+  width: 300px;
+}
+
+/* テキストボックス */
+#before, #after {
+  width: 95%;
+}
+
+/* ボタン */
+/* 登録するボタン */
+#register-button {
+  display: block;
+	margin: auto;
+}
+/* URLを変換するボタン */
+#replace-button {
+  display: block;
+	margin: auto;
+}
+
+/* エラーメッセージ */
+#error-message {
+  color: red;
+  margin-bottom: 20px;
+}
