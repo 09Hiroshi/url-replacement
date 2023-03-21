@@ -76,8 +76,6 @@ replaceButton.addEventListener('click', () => {
     const escapeRegExpBefore = escapeRegExp(before)
     const newUrl = url.replace(new RegExp(escapeRegExpBefore, 'g'), after)
 
-    alert(before + '\n' + escapeRegExpBefore)
-
     // 変換後のURLを指定する
     chrome.tabs.update({
       url: newUrl
