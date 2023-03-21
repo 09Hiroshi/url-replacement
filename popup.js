@@ -6,10 +6,7 @@ const registerButton = document.getElementById('register-button')
 const replaceButton = document.getElementById('replace-button')
 const errorMessage = document.getElementById('error-message')
 
-/**
- * ポップアップ表示時の挙動
- */
-// 設定を読み込む
+// 設定を読み込む（ポップアップ表示時の挙動）
 chrome.storage.local.get(['before', 'after'], (result) => {
 
   document.getElementById('fixed-before').textContent = result.before
@@ -76,7 +73,10 @@ replaceButton.addEventListener('click', () => {
     validationReplace(url, before)
 
     // URLを変換する
-    const newUrl = url.replace(before, after)
+    const escapeRegExpBefore = escapeRegExp(before)
+    const newUrl = url.replace(new RegExp(escapeRegExpBefore, 'g'), after)
+
+    alert(before + '\n' + escapeRegExpBefore)
 
     // 変換後のURLを指定する
     chrome.tabs.update({
@@ -126,4 +126,11 @@ const toggleVisibility = (visibility) => {
   document.getElementById("replace-button").style.visibility = visibility;
   // 文字列の変換内容
   document.getElementById("content-to-replace").style.visibility = visibility;
+}
+
+/**
+ * 正規表現で必要な文字をエスケープする
+ */
+const escapeRegExp = (str) => {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
