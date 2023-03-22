@@ -1,6 +1,6 @@
 # Chrome拡張機能
 
-
+simple URL replacement
 
 ## 概要
 
